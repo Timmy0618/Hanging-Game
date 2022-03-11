@@ -35,9 +35,9 @@ public class MonsterSpawner : MonoBehaviour
             }
             else
             {
-                spawnMonster.transform.position = leftPos.position;
+                spawnMonster.transform.position = rightPos.position;
                 spawnMonster.GetComponent<Enemy>().speed = -Random.Range(4, 10);
-                // spawnMonster.transform.localScale = new Vector3(-1f, 1f, 1f);
+                spawnMonster.transform.localScale = new Vector3(-5f, 6f, 1f);
             }
         }
     }
