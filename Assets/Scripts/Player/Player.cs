@@ -8,11 +8,12 @@ public class Player : MonoBehaviour
 {
     string RUN_ANIMATION = "run";
     string GROUND_TAG = "Floor";
+    string ENEMY_TAG = "Enemy";
+
     float movementX;
     bool isGrounded;
     [SerializeField] float moveForce = 5f;
     [SerializeField] float jumpForce = 5f;
-    [SerializeField] GameObject hpBar;
     Animator anim;
     Rigidbody2D myBody;
     SpriteRenderer sr;
@@ -75,6 +76,23 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag(GROUND_TAG))
         {
             isGrounded = true;
+        }
+
+        if (other.gameObject.CompareTag(ENEMY_TAG))
+        {
+            //刪除自己
+            Destroy(gameObject);
+        }
+    }
+
+    //trigger 方式觸發碰撞
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("trigger");
+        if (other.CompareTag(ENEMY_TAG))
+        {
+            //刪除自己
+            Destroy(gameObject);
         }
     }
 }

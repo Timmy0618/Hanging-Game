@@ -17,6 +17,10 @@ public class Camera : MonoBehaviour
     // 當 update 全部完成才執行
     void LateUpdate()
     {
+        //player物件消失
+        if (player == null)
+            return;
+
         // 初始化相機位置
         tempPos = transform.position;
         tempPos.x = player.position.x;
