@@ -12,6 +12,7 @@ public class Camera : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        // Debug.Log(GameManager.instance.CharIndex);
     }
 
     // 當 update 全部完成才執行
